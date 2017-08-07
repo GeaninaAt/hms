@@ -1,5 +1,6 @@
 package com.hms.service;
 
+import com.hms.domain.Department;
 import com.hms.domain.Doctor;
 
 import javax.print.Doc;
@@ -28,5 +29,9 @@ public interface DoctorService {
 
     List<Doctor> findByPosition(String position);
 
-    List<Doctor> findByDepartment(Long departmentId);
+    /*List<Doctor> findByDepartment(Long departmentId);*/
+
+    Doctor addToDepartment(Doctor doctor, Department department);
+
+    Doctor removeFromDepartment(Doctor doctor, Department department);
 }

@@ -1,6 +1,8 @@
 package com.hms.service.impl;
 
+import com.hms.domain.Department;
 import com.hms.domain.Doctor;
+import com.hms.repository.DepartmentRepository;
 import com.hms.repository.DoctorRepository;
 import com.hms.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Autowired
     private DoctorRepository doctorRepository;
+
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     @Override
     public List<Doctor> findAll() {
@@ -63,8 +68,26 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public List<Doctor> findByDepartment(Long departmentId) {
-        return doctorRepository.findByDepartment(departmentId);
+    public Doctor addToDepartment(Doctor doctor, Department department) {
+        doctor.setDepartment(department);
+        department.getDoctors().add(doctor);
+        doctorRepository.save(doctor);
+        departmentRepository.save(department);
+        return doctor;
     }
 
+    @Override
+    public Doctor removeFromDepartment(Doctor doctor, Department department) {
+        doctor.setDepartment(null);
+        department.getDoctors().remove(doctor);
+        doctorRepository.save(doctor);
+        departmentRepository.save(department);
+        return doctor;
+    }
+
+
+    /*@Override
+    public List<Doctor> findByDepartment(Long departmentId) {
+        return doctorRepository.findByDepartment(departmentId);
+    }*/
 }

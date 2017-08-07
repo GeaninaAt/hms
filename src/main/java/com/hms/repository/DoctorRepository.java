@@ -28,6 +28,6 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     @Query(value = "select d from Doctor as d where d.position like :position")
     List<Doctor> findByPosition(@Param("position") String position);
 
-    @Query(value = "select d from Doctor d as d left join d.department as x where x.id = :departmentId")
-    List<Doctor> findByDepartment(@Param("departmentId") Long departmentId);
+    /*@Query(value = "select d from Doctor d as d left join d.department as x where x.id = :departmentId")
+    List<Doctor> findByDepartment(@Param("departmentId") Long departmentId);*/
 }

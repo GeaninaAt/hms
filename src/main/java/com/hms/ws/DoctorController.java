@@ -1,6 +1,8 @@
 package com.hms.ws;
 
+import com.hms.domain.Department;
 import com.hms.domain.Doctor;
+import com.hms.service.DepartmentService;
 import com.hms.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.print.Doc;
 import java.util.List;
 
 /**
@@ -20,6 +23,9 @@ public class DoctorController {
 
     @Autowired
     private DoctorService doctorService;
+
+    @Autowired
+    private DepartmentService departmentService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Doctor> addDoctor(@RequestBody Doctor doctor, UriComponentsBuilder ucBuilder) {
@@ -135,5 +141,39 @@ public class DoctorController {
         }
 
         return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/addToDepartment/{doctorId}/{departmentId}", method = RequestMethod.POST)
+    public ResponseEntity<Doctor> addToDepartment(@PathVariable("doctorId") Long doctorId, @PathVariable("departmentId") Long departmentId) {
+        Doctor doctor = doctorService.findById(doctorId);
+        Department department = departmentService.findById(departmentId);
+
+        if(doctor == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        if(department == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        doctorService.addToDepartment(doctor, department);
+        return new ResponseEntity<>(doctor, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/removeFromDepartment/{doctorId}/{departmentId}", method = RequestMethod.POST)
+    public ResponseEntity<Doctor> removeFromDepartment(@PathVariable("doctorId") Long doctorId, @PathVariable("departmentId") Long departmentId) {
+        Doctor doctor = doctorService.findById(doctorId);
+        Department department = departmentService.findById(departmentId);
+
+        if(doctor == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        if(department == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        doctorService.removeFromDepartment(doctor, department);
+        return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 }
