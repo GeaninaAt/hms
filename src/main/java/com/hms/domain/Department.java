@@ -28,6 +28,14 @@ public class Department extends AbstractPersistable<Long> {
     @JsonIgnore
     private List<Doctor> doctors = new ArrayList<>();
 
+    @OneToMany(mappedBy = "department")
+    @JsonIgnore
+    private List<Room> rooms;
+
+    @OneToMany(mappedBy = "department")
+    @JsonIgnore
+    private List<Admission> admissions;
+
     public String getName() {
         return name;
     }
@@ -50,5 +58,21 @@ public class Department extends AbstractPersistable<Long> {
 
     public void setDoctors(List<Doctor> doctors) {
         this.doctors = doctors;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public List<Admission> getAdmissions() {
+        return admissions;
+    }
+
+    public void setAdmissions(List<Admission> admissions) {
+        this.admissions = admissions;
     }
 }

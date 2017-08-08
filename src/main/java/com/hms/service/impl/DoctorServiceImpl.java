@@ -2,6 +2,7 @@ package com.hms.service.impl;
 
 import com.hms.domain.Department;
 import com.hms.domain.Doctor;
+import com.hms.domain.Patient;
 import com.hms.repository.DepartmentRepository;
 import com.hms.repository.DoctorRepository;
 import com.hms.service.DoctorService;
@@ -49,6 +50,12 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public void delete(Long id) {
+        Doctor doctor = doctorRepository.findOne(id);
+        List<Patient> patients = doctor.getPatients();
+        for(Patient p : patients) {
+            p.setDoctor(null);
+        }
+        doctor.setPatients(null);
         doctorRepository.delete(id);
     }
 
@@ -86,8 +93,8 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
 
-    /*@Override
+    @Override
     public List<Doctor> findByDepartment(Long departmentId) {
-        return doctorRepository.findByDepartment(departmentId);
-    }*/
+        return doctorRepository.findByDepartmentId(departmentId);
+    }
 }

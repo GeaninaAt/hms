@@ -1,7 +1,6 @@
 package com.hms.ws;
 
 import com.hms.domain.Department;
-import com.hms.domain.Doctor;
 import com.hms.service.DepartmentService;
 import com.hms.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,6 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
-
-    @Autowired
-    private DoctorService doctorService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Department> addDepartment(@RequestBody Department department, UriComponentsBuilder ucBuilder) {
@@ -94,20 +90,4 @@ public class DepartmentController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value = "/getAllDoctors/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<Doctor>> getAllDoctorsForDepartment(@PathVariable("id") Long departmentId) {
-        Department department = departmentService.findById(departmentId);
-
-        if(department == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        List<Doctor> doctors = doctorService.findByDepartment(departmentId);
-
-        if((doctors == null) || (doctors.isEmpty())) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(doctors, HttpStatus.OK);
-        }
-    }
 }

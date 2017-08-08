@@ -1,7 +1,9 @@
 package com.hms.service.impl;
 
+import com.hms.domain.Bed;
 import com.hms.domain.Doctor;
 import com.hms.domain.Patient;
+import com.hms.domain.Room;
 import com.hms.repository.DoctorRepository;
 import com.hms.repository.PatientRepository;
 import com.hms.service.PatientService;
@@ -81,4 +83,5 @@ public class PatientServiceImpl implements PatientService {
     public List<Patient> getAllForDoctor(Doctor doctor) {
         return doctor.getPatients();
     }
+
 }

@@ -29,7 +29,7 @@ public interface DoctorService {
 
     List<Doctor> findByPosition(String position);
 
-    /*List<Doctor> findByDepartment(Long departmentId);*/
+    List<Doctor> findByDepartment(Long departmentId);
 
     Doctor addToDepartment(Doctor doctor, Department department);
 

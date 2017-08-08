@@ -29,4 +29,5 @@ public interface PatientService {
     Patient unassignDoctor(Patient patient, Doctor doctor);
 
     List<Patient> getAllForDoctor(Doctor doctor);
+
 }

@@ -176,4 +176,21 @@ public class DoctorController {
         doctorService.removeFromDepartment(doctor, department);
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/getAllForDep/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<Doctor>> getAllDoctorsForDepartment(@PathVariable("id") Long departmentId) {
+        Department department = departmentService.findById(departmentId);
+
+        if(department == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<Doctor> doctors = doctorService.findByDepartment(departmentId);
+
+        if((doctors == null) || (doctors.isEmpty())) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(doctors, HttpStatus.OK);
+        }
+    }
 }

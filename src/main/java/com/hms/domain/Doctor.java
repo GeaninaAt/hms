@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,6 +31,7 @@ public class Doctor extends AbstractPersistable<Long> {
 
     @NotNull
     @Size(max = 13, min = 13)
+    @Column(unique = true)
     private String cnp;
 
     @NotNull
@@ -57,6 +55,14 @@ public class Doctor extends AbstractPersistable<Long> {
     @OneToMany(mappedBy = "doctor")
     @JsonIgnore
     private List<Patient> patients = new ArrayList<>();
+
+    @OneToMany(mappedBy = "doctor")
+    @JsonIgnore
+    private List<Examination> examinations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "doctor")
+    @JsonIgnore
+    private List<Admission> admissions = new ArrayList<>();
 
     public String getFirstName() {
         return firstName;
@@ -136,5 +142,21 @@ public class Doctor extends AbstractPersistable<Long> {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public List<Examination> getExaminations() {
+        return examinations;
+    }
+
+    public void setExaminations(List<Examination> examinations) {
+        this.examinations = examinations;
+    }
+
+    public List<Admission> getAdmissions() {
+        return admissions;
+    }
+
+    public void setAdmissions(List<Admission> admissions) {
+        this.admissions = admissions;
     }
 }

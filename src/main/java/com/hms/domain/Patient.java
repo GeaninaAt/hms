@@ -1,6 +1,7 @@
 package com.hms.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hms.domain.enumeration.BloodType;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -8,7 +9,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by gatomulesei on 8/7/2017.
@@ -48,6 +51,14 @@ public class Patient extends AbstractPersistable<Long> {
 
     @ManyToOne
     private Doctor doctor;
+
+    @OneToMany(mappedBy = "patient")
+    @JsonIgnore
+    private List<Examination> examinations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "patient")
+    @JsonIgnore
+    private List<Admission> admissions = new ArrayList<>();
 
     public String getFirstName() {
         return firstName;
@@ -119,5 +130,21 @@ public class Patient extends AbstractPersistable<Long> {
 
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
+    }
+
+    public List<Examination> getExaminations() {
+        return examinations;
+    }
+
+    public void setExaminations(List<Examination> examinations) {
+        this.examinations = examinations;
+    }
+
+    public List<Admission> getAdmissions() {
+        return admissions;
+    }
+
+    public void setAdmissions(List<Admission> admissions) {
+        this.admissions = admissions;
     }
 }
