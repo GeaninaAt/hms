@@ -27,4 +27,6 @@ public interface AdmissionService {
     void deleteAdmission(Admission admission);
 
     Admission discharge(Admission admission);
+
+    Admission findById(Long admissionId);
 }

@@ -47,10 +47,12 @@ public class AdmissionServiceImpl implements AdmissionService {
     public Admission addAdmissionForPatient(Admission admission, Patient patient, Doctor doctor, Department department, Bed bed) {
         admission.setPatient(patient);
         admission.setDoctor(doctor);
+        patient.setDoctor(doctor);
         admission.setDepartment(department);
         admission.setBed(bed);
         bed.setAvailable(false);
         admission.setActive(true);
+        admission.setAdmissionDate(new Date());
         return admissionRepository.save(admission);
     }
 
@@ -85,6 +87,12 @@ public class AdmissionServiceImpl implements AdmissionService {
     public Admission discharge(Admission admission) {
         admission.setDischargeDate(new Date());
         admission.setActive(false);
+        admissionRepository.save(admission);
         return admission;
+    }
+
+    @Override
+    public Admission findById(Long admissionId) {
+        return admissionRepository.findOne(admissionId);
     }
 }

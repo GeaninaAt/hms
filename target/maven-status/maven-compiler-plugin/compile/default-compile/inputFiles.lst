@@ -1,6 +1,8 @@
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\BedService.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\AdmissionServiceImpl.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\enumeration\BloodType.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\User.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Admission.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\DepartmentService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\ExaminationService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\ExaminationController.java
@@ -11,8 +13,10 @@ C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\repository\RoomRepository
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\UserServiceImpl.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\RoomService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\config\CORSFilter.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\AdmissionService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\RoomController.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\repository\DoctorRepository.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\AdmissionController.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\repository\UserRepository.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Room.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\UserController.java
@@ -30,6 +34,7 @@ C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\DepartmentController.j
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\security\SecurityWebAppInitializer.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\RoomServiceImpl.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Examination.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\repository\AdmissionRepository.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\DoctorServiceImpl.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Department.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\config\AppConfig.java
