@@ -2,7 +2,6 @@ package com.hms.ws;
 
 import com.hms.domain.Department;
 import com.hms.service.DepartmentService;
-import com.hms.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/departments")
+@CrossOrigin(origins = "http://localhost:8000")
 public class DepartmentController {
 
     @Autowired

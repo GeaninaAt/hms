@@ -18,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/rooms")
+@CrossOrigin(origins = "http://localhost:8000")
 public class RoomController {
 
     @Autowired

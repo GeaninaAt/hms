@@ -3,7 +3,6 @@ package com.hms.ws;
 import com.hms.domain.Bed;
 import com.hms.domain.Department;
 import com.hms.domain.Room;
-import com.hms.repository.DepartmentRepository;
 import com.hms.service.BedService;
 import com.hms.service.DepartmentService;
 import com.hms.service.RoomService;
@@ -21,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/beds")
+@CrossOrigin(origins = "http://localhost:8000")
 public class BedController {
 
     @Autowired

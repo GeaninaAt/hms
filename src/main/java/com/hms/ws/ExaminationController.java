@@ -20,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/examinations")
+@CrossOrigin(origins = "http://localhost:8000")
 public class ExaminationController {
 
     @Autowired

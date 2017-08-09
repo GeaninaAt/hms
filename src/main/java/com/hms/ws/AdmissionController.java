@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.print.Doc;
 import java.util.List;
 
 /**
@@ -17,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/admissions")
+@CrossOrigin(origins = "http://localhost:8000")
 public class AdmissionController {
 
     @Autowired

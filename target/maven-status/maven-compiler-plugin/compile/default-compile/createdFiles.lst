@@ -31,6 +31,7 @@ com\hms\repository\DoctorRepository.class
 com\hms\domain\Examination.class
 com\hms\ws\DepartmentController.class
 com\hms\repository\DepartmentRepository.class
+com\hms\ws\IndexController.class
 com\hms\Hms.class
 com\hms\service\BedService.class
 com\hms\service\impl\AdmissionServiceImpl.class
