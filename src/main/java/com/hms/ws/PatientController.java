@@ -1,7 +1,11 @@
 package com.hms.ws;
 
+import com.hms.domain.Admission;
+import com.hms.domain.Department;
 import com.hms.domain.Doctor;
 import com.hms.domain.Patient;
+import com.hms.service.AdmissionService;
+import com.hms.service.DepartmentService;
 import com.hms.service.DoctorService;
 import com.hms.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +31,13 @@ public class PatientController {
 
     @Autowired
     private DoctorService doctorService;
+
+    @Autowired
+    private DepartmentService departmentService;
+
+    @Autowired
+    private AdmissionService admissionService;
+
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Patient> addPatient(@RequestBody Patient patient, UriComponentsBuilder ucBuilder) {
@@ -182,6 +194,24 @@ public class PatientController {
         }
 
         List<Patient> patients = patientService.getAllForDoctor(doctor);
+        return new ResponseEntity<>(patients, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getByDepartment/{name}", method = RequestMethod.GET)
+    public ResponseEntity<List<Patient>> getByDepartment(@PathVariable("name") String departmentName) {
+        Department department = departmentService.findByName(departmentName);
+
+        if(department == null) {
+            System.out.println("department not found!");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<Admission> admissions = admissionService.findActiveByDepartment(department.getId());
+        List<Patient> patients = new ArrayList<>();
+        for(Admission a : admissions) {
+            patients.add(a.getPatient());
+        }
+
         return new ResponseEntity<>(patients, HttpStatus.OK);
     }
 }

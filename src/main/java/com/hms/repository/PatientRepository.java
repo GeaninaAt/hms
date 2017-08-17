@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * Created by gatomulesei on 8/7/2017.
@@ -17,4 +19,5 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     Patient findByName(@Param("name")String name);
 
     Patient findByCnp(String cnp);
+
 }

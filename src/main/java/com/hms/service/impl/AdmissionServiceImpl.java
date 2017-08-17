@@ -53,6 +53,7 @@ public class AdmissionServiceImpl implements AdmissionService {
         bed.setAvailable(false);
         admission.setActive(true);
         admission.setAdmissionDate(new Date());
+        patient.setAdmitted(true);
         return admissionRepository.save(admission);
     }
 
@@ -94,5 +95,10 @@ public class AdmissionServiceImpl implements AdmissionService {
     @Override
     public Admission findById(Long admissionId) {
         return admissionRepository.findOne(admissionId);
+    }
+
+    @Override
+    public List<Admission> findActiveByDepartment(Long departmentId) {
+        return admissionRepository.findByDepartmentIdAndActiveTrue(departmentId);
     }
 }

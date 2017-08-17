@@ -27,14 +27,23 @@ public class DoctorController {
     @Autowired
     private DepartmentService departmentService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<Doctor> addDoctor(@RequestBody Doctor doctor, UriComponentsBuilder ucBuilder) {
+    @RequestMapping(value = "/add/{departmentName}", method = RequestMethod.POST)
+    public ResponseEntity<Doctor> addDoctor(@PathVariable String departmentName,
+                                            @RequestBody Doctor doctor,
+                                            UriComponentsBuilder ucBuilder) {
+
         if(doctorService.isExists(doctor)) {
-            System.out.println("Patient already exists!");
+            System.out.println("Doctor already exists!");
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
+        Department department = departmentService.findByName(departmentName);
+        if(department == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         doctorService.addDoctor(doctor);
+        doctorService.addToDepartment(doctor, department);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/doctors/{id}").buildAndExpand(doctor.getId()).toUri());

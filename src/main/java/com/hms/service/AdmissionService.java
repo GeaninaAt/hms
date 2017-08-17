@@ -29,4 +29,6 @@ public interface AdmissionService {
     Admission discharge(Admission admission);
 
     Admission findById(Long admissionId);
+
+    List<Admission> findActiveByDepartment(Long departmentId);
 }

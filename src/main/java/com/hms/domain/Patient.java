@@ -60,6 +60,8 @@ public class Patient extends AbstractPersistable<Long> {
     @JsonIgnore
     private List<Admission> admissions = new ArrayList<>();
 
+    private boolean admitted;
+
     public String getFirstName() {
         return firstName;
     }
@@ -146,5 +148,13 @@ public class Patient extends AbstractPersistable<Long> {
 
     public void setAdmissions(List<Admission> admissions) {
         this.admissions = admissions;
+    }
+
+    public boolean isAdmitted() {
+        return admitted;
+    }
+
+    public void setAdmitted(boolean admitted) {
+        this.admitted = admitted;
     }
 }

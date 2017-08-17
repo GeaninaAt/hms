@@ -2,6 +2,7 @@ package com.hms.service;
 
 import com.hms.domain.Doctor;
 import com.hms.domain.Patient;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
