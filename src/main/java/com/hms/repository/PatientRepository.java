@@ -20,4 +20,5 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     Patient findByCnp(String cnp);
 
+    List<Patient> findByAdmittedFalse();
 }

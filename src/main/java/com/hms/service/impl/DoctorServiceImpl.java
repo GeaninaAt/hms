@@ -94,7 +94,7 @@ public class DoctorServiceImpl implements DoctorService {
 
 
     @Override
-    public List<Doctor> findByDepartment(Long departmentId) {
-        return doctorRepository.findByDepartmentId(departmentId);
+    public List<Doctor> findByDepartment(String departmentName) {
+        return doctorRepository.findByDepartmentName(departmentName);
     }
 }

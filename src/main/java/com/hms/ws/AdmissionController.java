@@ -35,10 +35,10 @@ public class AdmissionController {
     private BedService bedService;
 
 
-    @RequestMapping(value = "/add/{patientId}/{doctorId}/{departmentId}/{bedId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/add/{patientId}/{doctorId}/{departmentName}/{bedId}", method = RequestMethod.POST)
     public ResponseEntity<Admission> addAdmissionForPatient(@PathVariable("patientId") Long patientId,
                                                             @PathVariable("doctorId") Long doctorId,
-                                                            @PathVariable("departmentId") Long departmentId,
+                                                            @PathVariable("departmentName") String departmentName,
                                                             @PathVariable("bedId") Long bedId,
                                                             @RequestBody Admission admission,
                                                             UriComponentsBuilder ucBuilder) {
@@ -55,7 +55,7 @@ public class AdmissionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        Department department = departmentService.findById(departmentId);
+        Department department = departmentService.findByName(departmentName);
         if(department == null) {
             System.out.println("Department not found!");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

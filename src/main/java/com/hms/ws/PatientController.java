@@ -214,4 +214,16 @@ public class PatientController {
 
         return new ResponseEntity<>(patients, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/getUnadmitted", method = RequestMethod.GET)
+    public ResponseEntity<List<Patient>> getUnadmitted() {
+        List<Patient> patients = patientService.findUnadmitted();
+
+        if((patients == null) || (patients.isEmpty())) {
+            System.out.println("no unadmitted patients found");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(patients, HttpStatus.OK);
+    }
 }

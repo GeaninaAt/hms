@@ -186,15 +186,15 @@ public class DoctorController {
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getAllForDep/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<Doctor>> getAllDoctorsForDepartment(@PathVariable("id") Long departmentId) {
-        Department department = departmentService.findById(departmentId);
+    @RequestMapping(value = "/getAllForDep/{name}", method = RequestMethod.GET)
+    public ResponseEntity<List<Doctor>> getAllDoctorsForDepartment(@PathVariable("name") String departmentName) {
+        Department department = departmentService.findByName(departmentName);
 
         if(department == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        List<Doctor> doctors = doctorService.findByDepartment(departmentId);
+        List<Doctor> doctors = doctorService.findByDepartment(departmentName);
 
         if((doctors == null) || (doctors.isEmpty())) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

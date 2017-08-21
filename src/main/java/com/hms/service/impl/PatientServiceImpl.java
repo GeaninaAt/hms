@@ -84,4 +84,10 @@ public class PatientServiceImpl implements PatientService {
         return doctor.getPatients();
     }
 
+    @Override
+    public List<Patient> findUnadmitted() {
+        return patientRepository.findByAdmittedFalse();
+    }
+
+
 }

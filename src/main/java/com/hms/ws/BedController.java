@@ -77,9 +77,9 @@ public class BedController {
         }
     }
 
-    @RequestMapping(value = "/findAvailableByDep/{depId}", method = RequestMethod.GET)
-    public ResponseEntity<List<Bed>> findAvailableByDep(@PathVariable("depId") Long depId) {
-        Department department = departmentService.findById(depId);
+    @RequestMapping(value = "/findAvailableByDep/{depName}", method = RequestMethod.GET)
+    public ResponseEntity<List<Bed>> findAvailableByDep(@PathVariable("depName") String depName) {
+        Department department = departmentService.findByName(depName);
 
         if(department == null) {
             System.out.println("Department not found!");

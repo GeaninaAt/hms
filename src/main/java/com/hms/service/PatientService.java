@@ -31,4 +31,5 @@ public interface PatientService {
 
     List<Patient> getAllForDoctor(Doctor doctor);
 
+    List<Patient> findUnadmitted();
 }
