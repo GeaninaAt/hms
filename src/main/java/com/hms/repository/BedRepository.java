@@ -21,4 +21,6 @@ public interface BedRepository extends JpaRepository<Bed, Long> {
     List<Bed> findByAvailabilityAndDepartment(@Param("departmentId") Long departmentId);
 
     List<Bed> findByRoomId(Long roomId);
+
+    Bed findByNumber(String bedNumber);
 }

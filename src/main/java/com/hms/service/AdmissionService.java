@@ -31,4 +31,6 @@ public interface AdmissionService {
     Admission findById(Long admissionId);
 
     List<Admission> findActiveByDepartment(Long departmentId);
+
+    Admission findByBedNumber(String bedNo);
 }

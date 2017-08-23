@@ -1,5 +1,6 @@
 package com.hms.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Bed extends AbstractPersistable<Long> {
     private Room room;
 
     @OneToOne
+    @JsonIgnore
     private Admission admission;
 
     public String getNumber() {

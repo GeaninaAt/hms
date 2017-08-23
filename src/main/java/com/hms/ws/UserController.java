@@ -35,6 +35,7 @@ public class UserController {
             defaultUser.setPassword("admin");
             defaultUser.setFirstName("admin");
             defaultUser.setLastName("admin");
+            defaultUser.setEmail("admin@admin.com");
             defaultUser.setRole("ROLE_ADMIN");
             defaultUser.setEnabled(true);
             userRepository.save(defaultUser);
@@ -80,7 +81,7 @@ public class UserController {
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<User> updateUser(@PathVariable("id") Long id, @RequestBody User user) {
         System.out.println("Updating user " + id);
 
@@ -102,7 +103,7 @@ public class UserController {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<User> deleteUser(@PathVariable("id") Long id) {
         System.out.println("Fetching and deleting user with id " + id);
 

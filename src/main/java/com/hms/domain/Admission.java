@@ -1,6 +1,7 @@
 package com.hms.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Admission extends AbstractPersistable<Long> {
     private boolean active;
 
     @ManyToOne
+    @JsonIgnore
     private Patient patient;
 
     @OneToOne

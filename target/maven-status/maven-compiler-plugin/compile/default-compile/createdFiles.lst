@@ -14,6 +14,7 @@ com\hms\ws\AdmissionController.class
 com\hms\service\UserService.class
 com\hms\security\SecurityWebAppInitializer.class
 com\hms\service\impl\DoctorServiceImpl.class
+com\hms\ws\AuthenticationEndpoint.class
 com\hms\domain\Room.class
 com\hms\service\impl\BedServiceImpl.class
 com\hms\ws\PatientController.class
@@ -31,7 +32,6 @@ com\hms\repository\DoctorRepository.class
 com\hms\domain\Examination.class
 com\hms\ws\DepartmentController.class
 com\hms\repository\DepartmentRepository.class
-com\hms\ws\IndexController.class
 com\hms\Hms.class
 com\hms\service\BedService.class
 com\hms\service\impl\AdmissionServiceImpl.class

@@ -66,9 +66,21 @@ public class BedController {
         }
     }
 
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Bed> getBed(@PathVariable("id") Long bedId) {
         Bed bed = bedService.findById(bedId);
+
+        if(bed == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(bed, HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(value = "/getByNumber/{bedNo}", method = RequestMethod.GET)
+    public ResponseEntity<Bed> getByNumber(@PathVariable("bedNo") String bedNo) {
+        Bed bed = bedService.findByNumber(bedNo);
 
         if(bed == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

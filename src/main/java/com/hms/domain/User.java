@@ -29,8 +29,11 @@ public class User extends AbstractPersistable<Long> {
 
     @NotNull
     @Size(max = 50)
-    @JsonIgnore
     private String password;
+
+    @NotNull
+    @Size(max = 50)
+    private String email;
 
     private String role;
 
@@ -83,5 +86,13 @@ public class User extends AbstractPersistable<Long> {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

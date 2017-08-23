@@ -75,6 +75,7 @@ public class PatientController {
         }
     }
 
+
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Patient> updatePatient(@PathVariable("id") Long patientId, @RequestBody Patient patient) {
         Patient currentPatient = patientService.findById(patientId);
@@ -226,4 +227,6 @@ public class PatientController {
 
         return new ResponseEntity<>(patients, HttpStatus.OK);
     }
+
+
 }

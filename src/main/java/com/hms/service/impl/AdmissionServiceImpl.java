@@ -101,4 +101,9 @@ public class AdmissionServiceImpl implements AdmissionService {
     public List<Admission> findActiveByDepartment(Long departmentId) {
         return admissionRepository.findByDepartmentIdAndActiveTrue(departmentId);
     }
+
+    @Override
+    public Admission findByBedNumber(String bedNo) {
+        return admissionRepository.findByBedNumber(bedNo);
+    }
 }

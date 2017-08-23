@@ -57,7 +57,6 @@ public class Patient extends AbstractPersistable<Long> {
     private List<Examination> examinations = new ArrayList<>();
 
     @OneToMany(mappedBy = "patient")
-    @JsonIgnore
     private List<Admission> admissions = new ArrayList<>();
 
     private boolean admitted;

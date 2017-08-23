@@ -20,6 +20,7 @@ C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\BedService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\AdmissionServiceImpl.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\enumeration\BloodType.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Admission.java
+C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\AuthenticationEndpoint.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\DepartmentService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\ExaminationController.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\impl\UserServiceImpl.java
@@ -27,7 +28,6 @@ C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\config\CORSFilter.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\service\AdmissionService.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\RoomController.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\AdmissionController.java
-C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\IndexController.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\repository\UserRepository.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\domain\Room.java
 C:\Users\gatomulesei\Desktop\hms\src\main\java\com\hms\ws\UserController.java

@@ -191,4 +191,15 @@ public class AdmissionController {
         admissionService.discharge(admission);
         return new ResponseEntity<>(admission, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/findByBedNo/{bedNo}", method = RequestMethod.GET)
+    public ResponseEntity<Admission> getAdmission(@PathVariable("bedNo") String bedNo) {
+        Admission admission = admissionService.findByBedNumber(bedNo);
+        if(admission == null) {
+            System.out.println("Admission not found!");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(admission, HttpStatus.OK);
+    }
 }

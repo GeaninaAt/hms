@@ -25,4 +25,6 @@ public interface BedService {
 
     List<Bed> findByRoom(Room room);
 
+    Bed findByNumber(String bedNo);
+
 }

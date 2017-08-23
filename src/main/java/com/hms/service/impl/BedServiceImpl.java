@@ -58,4 +58,9 @@ public class BedServiceImpl implements BedService {
     public List<Bed> findByRoom(Room room) {
         return bedRepository.findByRoomId(room.getId());
     }
+
+    @Override
+    public Bed findByNumber(String bedNo) {
+        return bedRepository.findByNumber(bedNo);
+    }
 }

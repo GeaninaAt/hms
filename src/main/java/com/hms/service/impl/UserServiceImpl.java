@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        user.setRole("ROLE_USER");
+        user.setRole("ROLE_" + user.getRole());
         user.setEnabled(true);
         return userRepository.save(user);
     }
