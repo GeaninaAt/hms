@@ -51,6 +51,7 @@ public class AdmissionServiceImpl implements AdmissionService {
         admission.setDepartment(department);
         admission.setBed(bed);
         bed.setAvailable(false);
+        bed.setAdmission(admission);
         admission.setActive(true);
         admission.setAdmissionDate(new Date());
         patient.setAdmitted(true);
